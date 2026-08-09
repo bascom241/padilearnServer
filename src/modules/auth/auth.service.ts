@@ -52,6 +52,7 @@ export const registerUser = async (
     fullName,
     email,
     isEmailSent: false,
+    userId: newUser._id.toString(),
   };
   let isEmailSent = true;
   try {

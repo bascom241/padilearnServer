@@ -33,3 +33,26 @@ export const validateToken = (
     throw new AppError("Invalid token.", 401);
   }
 };
+
+// For public endpoints whose response varies for logged-in users (e.g. a
+// course's lesson list marking which lessons are locked). Never rejects the
+// request — an absent/invalid token just means req.user stays undefined.
+export const attemptAuthenticate = (
+  req: ValidateRequestType,
+  res: Response,
+  next: NextFunction,
+) => {
+  const authHeader = req.headers.authorization;
+  const token = authHeader?.split(" ")[1];
+  const secretKey = process.env.JWT_SECRET;
+
+  if (token && secretKey) {
+    try {
+      req.user = jwt.verify(token, secretKey);
+    } catch (err) {
+      // ignore — treat as anonymous
+    }
+  }
+
+  next();
+};

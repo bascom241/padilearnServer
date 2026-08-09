@@ -20,6 +20,12 @@ export const profileSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    bio: {
+      type: String,
+      trim: true,
+      maxlength: 280,
+    },
+    avatarUrl: String,
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",

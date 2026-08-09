@@ -13,5 +13,13 @@ const startServer = async () => {
     console.error("Startup error:", err);
     process.exit(1);
   }
+  
 };
 startServer();
+
+
+
+
+
+
+

@@ -6,7 +6,8 @@ dotenv.config();
 export const connecToDB = async ():Promise<void>=> {
   try {
     const url = process.env.MONGO_URL;
-    
+
+    console.log(url)
 
     if (!url) {
       throw new Error("MONGO_URL not found in environment variables");

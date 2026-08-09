@@ -16,7 +16,10 @@ const lessonSchema = new Schema({
         type: String, 
         required: [true, "description"]
     }, 
-    order: Number, 
+    order: {
+        type: Number,
+        default: 0,
+    },
     isPreview: {
         type: Boolean, 
         default: false

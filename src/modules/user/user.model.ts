@@ -22,7 +22,8 @@ import { UserRole } from "../../types/user.types.js";
   isVerified: {
     type: Boolean, 
     default: false
-  }, 
+  },
+
   refreshToken: String,
   verificationToken: String,
   verificationTokenExpiresAt: Date,

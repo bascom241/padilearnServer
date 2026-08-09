@@ -7,9 +7,18 @@ const moduleSchema = new Schema(
       required: [true, "course id is required"],
       ref: "Course",
     },
-    order: Number,
-    lessonCount: Number,
-    duration: Number,
+    order: {
+      type: Number,
+      default: 0,
+    },
+    lessonCount: {
+      type: Number,
+      default: 0,
+    },
+    duration: {
+      type: Number,
+      default: 0,
+    },
     title: {
       type: String,
       required: [true, "title is required"],
