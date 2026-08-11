@@ -8,8 +8,5 @@ export const startConversation = async (data: StartConversation, userId: string)
     if(!userId || userId === null){
         throw new AppError("userid is required", 400)
     }; 
-
     const {title, conversationId} = data
-
-
 }
